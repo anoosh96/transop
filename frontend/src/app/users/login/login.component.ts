@@ -1,26 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth.service';
 import { GC_AUTH_TOKEN, GC_USER_ID } from '../../constants';
-import { Apollo, gql } from 'apollo-angular';
-import { Router } from '@angular/router';
-
-const UPVOTE_POST = gql`
-  mutation signinUser($email: String!, $password: String!) {
-    signinUser (
-      input: {
-        credentials: {
-          email: $email,
-          password: $password
-        }
-      }
-    ) {
-      token,
-      user{
-        id
-      }
-    }
-  }
-`;
+import { Apollo } from 'apollo-angular';
+import { LOGIN_USER_QUERY } from './queries'
 
 @Component({
   selector: 'app-index',
@@ -32,31 +14,26 @@ export class UsersLoginComponent implements OnInit {
   email: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService, private apollo: Apollo, private router: Router) {
-  }
+  constructor(private authService: AuthService, private apollo: Apollo) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   confirm() {
     this.apollo.mutate({
-      mutation: UPVOTE_POST,
+      mutation: LOGIN_USER_QUERY,
       variables: {
         email: this.email,
         password: this.password
       }
     }).subscribe((result: any) => {
-      this.saveUserData(result.data.signinUser.user.id, result.data.signinUser.token);
-      this.router.navigate(['/']);
+      if (result.data.signinUser){
+        this.authService.login(result.data.signinUser.user.id, result.data.signinUser.token);
+      } else {
+        alert("Failed to log in!");
+      }
     },(error) => {
-      console.log('there was an error logging in', error);
+      alert(`there was an error logging in. ${error}`);
     });
-  }
-
-  saveUserData(id: string, token: string) {
-    localStorage.setItem(GC_USER_ID, id);
-    localStorage.setItem(GC_AUTH_TOKEN, token);
-    this.authService.setUserId(id);
   }
 
 }

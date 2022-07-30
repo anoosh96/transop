@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {AuthService} from './auth.service';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,17 +7,16 @@ import {AuthService} from './auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title: string = 'something';
   logged: boolean = false;
 
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
+    this.authService.autoLogin();
     this.authService.isAuthenticated
       .subscribe(isAuthenticated => {
         this.logged = isAuthenticated
       });
-
   }
 
   logout() {

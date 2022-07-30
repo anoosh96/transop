@@ -15,6 +15,7 @@ import { UsersLoginComponent } from './users/login/login.component';
 import { UsersNewComponent } from './users/new/new.component';
 import { CommunitiesIndexComponent } from './communities/index/index.component';
 import { AuthService } from './auth.service';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AuthService } from './auth.service';
     ContactComponent,
     UsersLoginComponent,
     UsersNewComponent,
-    CommunitiesIndexComponent
+    CommunitiesIndexComponent,
+    AdminComponent
   ],
   imports: [
     AppRoutingModule,
