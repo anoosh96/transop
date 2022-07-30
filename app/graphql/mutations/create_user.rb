@@ -12,7 +12,7 @@ module Mutations
     type Types::UserType
 
     def resolve(name: nil, auth_provider: nil)
-      # TODO convert this to registration code, make sure there is a confirmation email and all that.
+      # TODO make sure there is a confirmation email and all that.
 
       User.create!(
         name: name,

@@ -8,21 +8,23 @@ module Mutations
     field :user, Types::UserType, null: true
 
     def resolve(credentials: nil)
-      # basic validation
-      return unless credentials
 
-      user = User.find_by email: credentials[:email]
+      # { user: user, token: token }
+      user = User.find_for_database_authentication(email: credentials[:email])
 
-      # ensures we have the correct user
-      return unless user
-      return unless user.authenticate(credentials[:password])
-
-      # use Ruby on Rails - ActiveSupport::MessageEncryptor, to build a token
-      crypt = ActiveSupport::MessageEncryptor.new(Rails.application.credentials.secret_key_base.byteslice(0..31))
-      token = crypt.encrypt_and_sign("user-id:#{ user.id }")
-      context[:session][:token] = token
-
-      { user: user, token: token }
+      if user.present?
+        if user.valid_password?(credentials[:password])
+          token = Warden::JWTAuth::UserEncoder.new.call(user, :users, nil)
+          
+          context[:session][:token] = token
+          context[:current_user] = user
+          { user: user, token: token }
+        else
+          GraphQL::ExecutionError.new("Incorrect Email/Password")
+        end
+      else
+        GraphQL::ExecutionError.new("User not registered on this application")
+      end
     end
   end
 end

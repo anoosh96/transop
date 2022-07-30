@@ -5,10 +5,5 @@ module Types
     field :id, ID, null: false
     field :name, String, null: false
     field :email, String, null: false
-    field :virtual, String, null: false
-
-    def virtual
-      "none database field here"
-    end
   end
 end
