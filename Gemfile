@@ -9,6 +9,8 @@ gem "puma", "~> 5.0"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem "graphql", "~> 2.0"
+gem 'bcrypt', '~> 3.1.13'
+
 
 gem "rack-cors"
 
