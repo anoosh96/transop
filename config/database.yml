@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: transpo_development
+  username: <%= ENV.fetch("TRANSPO_DB_USERNAME") %>
+  password: <%= ENV.fetch("TRANSPO_DB_PASSWORD") %>
+  host: <%= ENV.fetch("TRANSPO_DB_HOST") %>
+  port: <%= ENV.fetch("TRANSPO_DB_PORT") %>
+
+test:
+  <<: *default
+  database: transpo_test
+
+production:
+  <<: *default
+  database: transpo_production
