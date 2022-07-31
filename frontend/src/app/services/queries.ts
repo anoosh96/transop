@@ -1,5 +1,17 @@
 import { gql } from 'apollo-angular';
 
+
+// TODO: eventually split this into sub filters with dedicated queries for each model type
+export const GET_COMMUNITY_BY_USER_ID_QUERY = gql`
+  query myCommunity($user_id: String!) {
+    myCommunity (userId: $user_id) {
+      id,
+      name,
+      description
+    }
+  }
+`;
+
 export const REGISTER_USER_QUERY = gql`
   mutation createUser($name: String!, $email: String!, $password: String!){
     createUser(
@@ -48,5 +60,11 @@ export const GET_CURRENT_USER = gql`
       email,
       token
     }
+  }
+`;
+
+export const GET_DESCRIPTION = gql`
+  query description{
+    description
   }
 `;

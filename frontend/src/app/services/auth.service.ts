@@ -1,15 +1,15 @@
-import { NgModule } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
-import { AppRoutingModule } from './app-routing.module';
-import { GC_AUTH_TOKEN, GC_USER_ID } from './constants';
 import { Router } from '@angular/router';
-import { User } from './users/types';
+import { User } from './types';
 import { Apollo } from 'apollo-angular';
-import { LOGIN_USER_QUERY_BY_EMAIL_PASSWORD, GET_CURRENT_USER } from './users/queries'
+import { GC_AUTH_TOKEN, GC_USER_ID } from '../constants';
+import { LOGIN_USER_QUERY_BY_EMAIL_PASSWORD, GET_CURRENT_USER, REGISTER_USER_QUERY } from './queries'
 
-
-@NgModule()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
   private _isAuthenticated = new BehaviorSubject(false);
   private _currentUser = new BehaviorSubject({id: "", name: "", email: "", token: ""});
@@ -72,6 +72,28 @@ export class AuthService {
           console.log(`there was an error getting current user from server. ${error}`);
         });
     }
+  }
+
+  register(name: string, email: string, password: string) {
+
+    this.apollo.mutate({
+      mutation: REGISTER_USER_QUERY,
+      variables: {
+        name: name,
+        email: email,
+        password: password
+      }
+    }).subscribe((result: any) => {
+      if (result.data.createUser){
+        alert("Succeess!");
+        this.router.navigate(["/users/login"]);
+
+      } else {
+        alert("Failed to register");
+      }
+    },(error) => {
+      alert(`there was an error logging in. ${error}`);
+    });
   }
 
   private login(data: any) {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { REGISTER_USER_QUERY } from '../queries';
+import { AuthService } from '../../services/auth.service';
 import { Apollo } from 'apollo-angular';
 import { Router } from '@angular/router';
 
@@ -13,29 +13,11 @@ export class UsersNewComponent implements OnInit {
   password: string = '';
   name: string= '';
 
-  constructor(private apollo: Apollo, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit() {}
 
-  register(): void {
-    this.apollo.mutate({
-      mutation: REGISTER_USER_QUERY,
-      variables: {
-        name: this.name,
-        email: this.email,
-        password: this.password
-      }
-    }).subscribe((result: any) => {
-      if (result.data.createUser){
-        alert("Succeess!");
-        this.router.navigate(["/users/login"]);
-
-      } else {
-        alert("Failed to register");
-      }
-    },(error) => {
-      alert(`there was an error logging in. ${error}`);
-    });
+  register() {
+    this.authService.register(this.name, this.email, this.password);
   }
 }

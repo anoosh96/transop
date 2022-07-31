@@ -14,10 +14,11 @@ import { ContactComponent } from './contact/contact.component';
 import { UsersLoginComponent } from './users/login/login.component';
 import { UsersNewComponent } from './users/new/new.component';
 import { CommunitiesIndexComponent } from './communities/index/index.component';
-import { AuthService } from './auth.service';
 import { AdminComponent } from './admin/admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './shared/header/header.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MyCommunityComponent } from './admin/my-community/my-community.component';
 
 @NgModule({
   declarations: [
@@ -29,17 +30,18 @@ import { HeaderComponent } from './shared/header/header.component';
     UsersNewComponent,
     CommunitiesIndexComponent,
     AdminComponent,
-    HeaderComponent
+    HeaderComponent,
+    MyCommunityComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     GraphQLModule,
     HttpClientModule,
-    AuthService,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

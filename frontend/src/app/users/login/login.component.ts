@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-index',
@@ -11,8 +11,8 @@ export class UsersLoginComponent implements OnInit {
   email: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService) {}
-
+  constructor(private authService: AuthService) { }
+  
   ngOnInit() {}
 
   confirm() {

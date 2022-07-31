@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import { GET_CURRENT_USER } from '../users/queries';
-import { User } from '../users/types';
-import { AuthService } from '../auth.service';
+import { User } from '../services/types';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',

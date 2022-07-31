@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { GET_COMMUNITY_BY_USER_ID_QUERY } from './queries';
-import { GET_CURRENT_USER } from '../users/queries';
-import { User } from '../users/types';
-import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { User } from '../services/types';
 
 @Component({
   selector: 'app-admin',
@@ -18,7 +15,7 @@ export class AdminComponent implements OnInit {
     token: ''
   };
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     // starts user get

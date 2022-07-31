@@ -9,6 +9,9 @@ module Types
       argument :local_id, String, required: true
       argument :local_token, String, required: true
     end
+    field :my_community, CommunityType, null: true, description: "Get current user's community" do
+      argument :user_id, String, required: true
+    end
 
 
     def description
@@ -32,6 +35,14 @@ module Types
         email: user.email,
         name: user.name,
         token: local_token
+      }
+    end
+
+    def my_community(user_id: nil)
+      return {
+        id: 1,
+        name: 'katata',
+        description: 'base community'
       }
     end
   end
