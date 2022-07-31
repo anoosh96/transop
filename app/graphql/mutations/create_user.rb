@@ -14,11 +14,13 @@ module Mutations
     def resolve(name: nil, auth_provider: nil)
       # TODO make sure there is a confirmation email and all that.
 
-      User.create!(
+      user = User.create!(
         name: name,
         email: auth_provider&.[](:credentials)&.[](:email),
         password: auth_provider&.[](:credentials)&.[](:password)
       )
+
+      { id: user.id, name: user.name, email: user.email }
     end
   end
 end

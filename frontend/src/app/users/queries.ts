@@ -1,5 +1,25 @@
 import { gql } from 'apollo-angular';
 
+export const REGISTER_USER_QUERY = gql`
+  mutation createUser($name: String!, $email: String!, $password: String!){
+    createUser(
+      input: {
+        name: $name,
+        authProvider: {
+          credentials: {
+            email: $email,
+            password: $password
+          }
+        }
+      }
+  ) {
+      id
+      name
+      email
+    }
+  }
+`;
+
 export const LOGIN_USER_QUERY_BY_EMAIL_PASSWORD = gql`
   mutation signinUser($email: String!, $password: String!) {
     signinUser (

@@ -17,19 +17,19 @@ class GraphqlController < ApplicationController
 
   private
 
-  # gets current user from token stored in the session
+  # gets current user from token stored in JWT token on localstorage
   def current_user
-    return unless request.headers[:authorization]
+    return nil unless request.headers[:authorization]
     token = request.headers[:authorization]
     actual_token = token[4...token.length]
     decoded_token = JWT.decode(actual_token, nil, false)
     exp = decoded_token[0]["exp"]
-    
-    return unless Time.now.to_i < exp
+
+    return nil unless Time.now.to_i < exp
     user_id = decoded_token[0]["sub"]
 
     User.find user_id
-  rescue ActiveSupport::MessageVerifier::InvalidSignature
+  rescue ActiveSupport::MessageVerifier::InvalidSignature, JWT::DecodeError
     nil
   end
 
