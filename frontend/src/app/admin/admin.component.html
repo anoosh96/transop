@@ -1,5 +1,7 @@
-<p>admin works!</p>
+ <div *ngIf="user.id">
+	 <p>admin works!</p>
 
-user name: {{currentUser.name}}
-<br/>
-user email: {{currentUser.email}}
+	user name: {{user.name}}
+	<br/>
+	user email: {{user.email}}
+</div>

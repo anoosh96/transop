@@ -21,11 +21,12 @@ export const LOGIN_USER_QUERY_BY_EMAIL_PASSWORD = gql`
 `;
 
 export const GET_CURRENT_USER = gql`
-  query{
-    currentUser{
+  query currentUser($local_id: String!, $local_token: String!){
+    currentUser (localId: $local_id, localToken: $local_token) {
       id,
       name,
-      email
+      email,
+      token
     }
   }
 `;

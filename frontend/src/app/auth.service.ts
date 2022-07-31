@@ -11,19 +11,17 @@ import { LOGIN_USER_QUERY_BY_EMAIL_PASSWORD, GET_CURRENT_USER } from './users/qu
 
 @NgModule()
 export class AuthService {
-  private userId: string = '';
   private _isAuthenticated = new BehaviorSubject(false);
-  public currentUser: User = { 
-    id: "",
-    name: "",
-    email: "",
-    token: ""
-  };
+  private _currentUser = new BehaviorSubject({id: "", name: "", email: "", token: ""});
 
   constructor(private router: Router, private apollo: Apollo) {}
 
   get isAuthenticated(): Observable<boolean> {
     return this._isAuthenticated.asObservable();
+  }
+
+  get currentUser(): Observable<User>{
+    return this._currentUser.asObservable();
   }
 
   tryLogin(email: string, password: string) {
@@ -47,7 +45,6 @@ export class AuthService {
   logout() {
     localStorage.removeItem(GC_USER_ID);
     localStorage.removeItem(GC_AUTH_TOKEN);
-    this.userId = '';
     this._isAuthenticated.next(false);
   }
 
@@ -55,18 +52,28 @@ export class AuthService {
     const local_id = localStorage.getItem(GC_USER_ID);
     const local_token = localStorage.getItem(GC_AUTH_TOKEN);
 
-    console.log("local id, token: ", local_id, local_token);
-
-    this.apollo.watchQuery<any>({
-      query: GET_CURRENT_USER
-    })
-      .valueChanges
-      .subscribe(({ data, loading }) => {
-        debugger;
-        //this.setUser();
-      },(error) => {
-        console.log(`there was an error getting current user from server. ${error}`);
-      });
+    if (local_id && local_id.trim().length > 0 && local_token && local_token.trim().length > 0 ){
+      this.apollo.watchQuery<any>({
+        query: GET_CURRENT_USER,
+        variables: {
+          local_id: local_id,
+          local_token: local_token
+        }
+      })
+        .valueChanges
+        .subscribe(({ data, loading }) => {
+          this.setUser(
+            data.currentUser.id, 
+            data.currentUser.name,
+            data.currentUser.email,
+            data.currentUser.token
+          );
+        },(error) => {
+          console.log(`there was an error getting current user from server. ${error}`);
+        });
+    } else {
+      console.log("There is no user in local storage")
+    }
   }
 
   private login(data: any) {
@@ -77,14 +84,14 @@ export class AuthService {
   }
 
   private setUser(id: string, name: string, email: string, token: string) {
-    this.userId = id;
-    this.currentUser = {
+    const currentUser = {
       id: id,
       name: name,
       email: email,
       token: token
     };
 
+    this._currentUser.next(currentUser);
     this._isAuthenticated.next(true);
   }
 }

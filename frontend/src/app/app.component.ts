@@ -6,17 +6,18 @@ import { AuthService } from './auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
+  title: string = 'something';
   logged: boolean = false;
 
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
     this.authService.autoLogin();
-    this.authService.isAuthenticated
-      .subscribe(isAuthenticated => {
-        this.logged = isAuthenticated
-      });
+    this.authService.isAuthenticated.subscribe(isAuthenticated => {
+      this.logged = isAuthenticated
+    });
   }
 
   logout() {
