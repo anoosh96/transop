@@ -71,8 +71,6 @@ export class AuthService {
         },(error) => {
           console.log(`there was an error getting current user from server. ${error}`);
         });
-    } else {
-      console.log("There is no user in local storage")
     }
   }
 

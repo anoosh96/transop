@@ -16,6 +16,8 @@ import { UsersNewComponent } from './users/new/new.component';
 import { CommunitiesIndexComponent } from './communities/index/index.component';
 import { AuthService } from './auth.service';
 import { AdminComponent } from './admin/admin.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { AdminComponent } from './admin/admin.component';
     UsersLoginComponent,
     UsersNewComponent,
     CommunitiesIndexComponent,
-    AdminComponent
+    AdminComponent,
+    HeaderComponent
   ],
   imports: [
     AppRoutingModule,
@@ -35,7 +38,8 @@ import { AdminComponent } from './admin/admin.component';
     HttpClientModule,
     AuthService,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

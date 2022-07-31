@@ -8,7 +8,6 @@ import { AuthService } from './auth.service';
 })
 
 export class AppComponent {
-  title: string = 'something';
   logged: boolean = false;
 
   constructor(private authService: AuthService) {}
@@ -18,9 +17,5 @@ export class AppComponent {
     this.authService.isAuthenticated.subscribe(isAuthenticated => {
       this.logged = isAuthenticated
     });
-  }
-
-  logout() {
-    this.authService.logout();
   }
 }

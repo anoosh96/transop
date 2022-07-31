@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import { GET_DESCRIPTION } from './queries';
+import { GET_CURRENT_USER } from '../users/queries';
+import { User } from '../users/types';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,19 +10,18 @@ import { GET_DESCRIPTION } from './queries';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private apollo: Apollo) { }
+  user: User = {
+    id: '',
+    name: '',
+    email: '',
+    token: ''
+  };
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.apollo.watchQuery<any>({
-      query: GET_DESCRIPTION
-    })
-      .valueChanges
-      .subscribe(({ data, loading }) => {
-        console.log("got description", data);
-      },(error) => {
-        console.log(`there was an error getting current user from server. ${error}`);
-      });
+    this.authService.currentUser.subscribe(currentUser => {
+      this.user = currentUser;
+    });
   }
 
 }
