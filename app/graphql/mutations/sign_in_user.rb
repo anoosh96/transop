@@ -4,7 +4,6 @@ module Mutations
 
     argument :credentials, Types::AuthProviderCredentialsInput, required: false
 
-    field :token, String, null: true
     field :user, Types::UserType, null: true
 
     def resolve(credentials: nil)
@@ -16,7 +15,19 @@ module Mutations
 
           context[:session][:token] = token
           context[:current_user] = user
-          { user: user, token: token }
+          return {
+            user: { 
+              id: user.id,
+              email: user.email,
+              name: user.name,
+              token: token,
+              address: nil,
+              description: nil,
+              profile_picture: nil,
+              phone_number: nil,
+              social_media_links: nil,
+            }
+          }
         else
           GraphQL::ExecutionError.new("Incorrect Email/Password")
         end

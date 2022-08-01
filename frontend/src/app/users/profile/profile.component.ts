@@ -10,13 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class ProfileComponent implements OnInit {
   subscription: Subscription;
-  user: User = {
-    id: '',
-    name: '',
-    email: '',
-    token: ''
-  };
-
+  user: User;
   constructor(private authService: AuthService) { }
 
   ngOnInit() {

@@ -21,14 +21,25 @@ class GraphqlController < ApplicationController
   def current_user
     return nil unless request.headers[:authorization]
     token = request.headers[:authorization]
-    actual_token = token[4...token.length]
-    decoded_token = JWT.decode(actual_token, nil, false)
+    decoded_token = JWT.decode(token, nil, false)
     exp = decoded_token[0]["exp"]
 
     return nil unless Time.now.to_i < exp
     user_id = decoded_token[0]["sub"]
 
-    User.find user_id
+    user = User.find_by_id(user_id)
+
+    return { 
+      id: user.id,
+      email: user.email,
+      name: user.name,
+      token: token,
+      address: nil,
+      description: nil,
+      profile_picture: nil,
+      phone_number: nil,
+      social_media_links: nil,
+    }
   rescue ActiveSupport::MessageVerifier::InvalidSignature, JWT::DecodeError
     nil
   end

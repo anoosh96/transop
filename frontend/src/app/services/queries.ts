@@ -47,6 +47,8 @@ export const REGISTER_USER_QUERY = gql`
   }
 `;
 
+
+// TODO align the token to be on same level between the two queries
 export const LOGIN_USER_QUERY_BY_EMAIL_PASSWORD = gql`
   mutation signinUser($email: String!, $password: String!) {
     signinUser (
@@ -57,11 +59,16 @@ export const LOGIN_USER_QUERY_BY_EMAIL_PASSWORD = gql`
         }
       }
     ) {
-      token,
       user{
         id
         name
-        email
+        email   
+        token   
+        description
+        address
+        profilePicture
+        phoneNumber
+        socialMediaLinks
       }
     }
   }
@@ -73,7 +80,12 @@ export const GET_CURRENT_USER = gql`
       id,
       name,
       email,
-      token
+      token,
+      description,
+      address,
+      profilePicture
+      phoneNumber
+      socialMediaLinks
     }
   }
 `;

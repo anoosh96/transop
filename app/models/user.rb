@@ -5,7 +5,8 @@ class User < ApplicationRecord
 
   has_many :members
   has_many :communities, through: :members
-
+  has_one_attached :profile_picture
+  
   def jwt_payload
     { 'custom_token_data' => 'todo' }
   end

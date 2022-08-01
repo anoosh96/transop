@@ -5,7 +5,7 @@ import {HttpLink} from 'apollo-angular/http';
 import { GC_AUTH_TOKEN } from './constants';
 import { setContext } from '@apollo/client/link/context';
 
-
+// TODO populate this URL properly for development vs production
 const uri = 'http://localhost:3000/graphql';
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   const basic = setContext((operation, context) => ({
@@ -22,7 +22,7 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     } else {
       return {
         headers: {
-          Authorization: `JWT ${token}`
+          Authorization: `${token}`
         }
       };
     }

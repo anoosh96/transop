@@ -9,12 +9,8 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  user: User = {
-    id: '',
-    name: '',
-    email: '',
-    token: ''
-  };
+  user: User; 
+  
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {

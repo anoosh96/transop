@@ -21,6 +21,7 @@ module Types
     def current_user(local_id: nil, local_token: nil)
       if context[:current_user]
         user = context[:current_user]
+        return user
       else
         decoded_token = JWT.decode(local_token, nil, false)
         exp = decoded_token[0]["exp"]
@@ -31,12 +32,16 @@ module Types
       end
 
       return nil unless user
-
       return { 
         id: user.id,
         email: user.email,
         name: user.name,
-        token: local_token
+        token: local_token,
+        address: nil,
+        description: nil,
+        profile_picture: nil,
+        phone_number: nil,
+        social_media_links: nil,
       }
     end
 

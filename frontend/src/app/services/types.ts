@@ -7,5 +7,10 @@ export interface User {
 	id: string,
 	name: string,
 	email: string,
-	token: string
+	token: string,
+	phoneNumber?: string,
+	description?: string,
+	address?: string,
+	profilePicture?: string,
+	socialMediaLinks?: JSON
 }

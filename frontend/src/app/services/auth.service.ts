@@ -62,12 +62,9 @@ export class AuthService {
       })
         .valueChanges
         .subscribe(({ data, loading }) => {
-          this.setUser(
-            data.currentUser.id, 
-            data.currentUser.name,
-            data.currentUser.email,
-            data.currentUser.token
-          );
+          if (data.currentUser){
+            this.setUser(data.currentUser);
+          }
         },(error) => {
           console.log(`there was an error getting current user from server. ${error}`);
         });
@@ -103,17 +100,21 @@ export class AuthService {
 
   private login(data: any) {
     localStorage.setItem(GC_USER_ID, data.user.id);
-    localStorage.setItem(GC_AUTH_TOKEN, data.token);
-    this.setUser(data.user.id, data.user.name, data.user.email, data.token);
+    localStorage.setItem(GC_AUTH_TOKEN, data.user.token);
+    this.setUser(data.user);
     this.router.navigate(['/users/profile']);
   }
 
-  private setUser(id: string, name: string, email: string, token: string) {
+  private setUser(user: User) {
     const currentUser = {
-      id: id,
-      name: name,
-      email: email,
-      token: token
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      token: user.token,
+      description: user.description,
+      phoneNumber: user.phoneNumber,
+      address: user.address,
+      socialMediaLinks: user.socialMediaLinks
     };
 
     this._currentUser.next(currentUser);
