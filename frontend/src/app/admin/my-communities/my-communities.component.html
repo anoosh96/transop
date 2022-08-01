@@ -1,6 +1,6 @@
+<h2>My communities</h2>
 <div class="admin-communities-container">
 	<div *ngIf="!communities">
-		<h4>You do not have any communities.</h4>
 		Please create one or ask an admin of another community to invite you.
 		<br/>
 		<button
@@ -12,7 +12,6 @@
 		<app-create-community *ngIf="toggleCreateCommunity"></app-create-community>
 	</div>
 	<div *ngIf="communities">
-		You have communities:
 		<app-line-item *ngFor="let community of communities" [community]="community"></app-line-item>
 	</div>
 </div>

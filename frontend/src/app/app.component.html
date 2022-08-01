@@ -22,13 +22,13 @@
 <mat-drawer-container class="drawer-container" autosize>
   <mat-drawer #drawer class="drawer-sidenav" mode="side" [opened]="drawerOpened">
     <mat-nav-list> 
-      <div *ngIf="logged">
-        <a mat-list-item routerLink="/admin" >Admin</a>
-      </div>
       <a mat-list-item routerLink="/" routerLinkActive="active">Home</a>
       <a mat-list-item routerLink="/about" routerLinkActive="active">About</a>
       <a mat-list-item routerLink="/communities" routerLinkActive="active">Communities</a>
       <a mat-list-item routerLink="/contact_us" routerLinkActive="active">Contact Us</a>
+      <div *ngIf="logged">
+        <a mat-list-item routerLink="/admin" >Admin</a>
+      </div>
     </mat-nav-list>
   </mat-drawer>
 

@@ -1,0 +1,15 @@
+.stats-card{
+    width: 100%;
+    ul {
+        padding: 0px;
+        list-style-type: none;
+        li{
+            border-bottom: 1px solid grey;
+            margin-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+}
+.mat-card{
+    height: 100%;
+}

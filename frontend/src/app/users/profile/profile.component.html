@@ -1,3 +1,72 @@
-<div *ngIf="user.id">
-	<p>profile works!</p>
-</div>
+<mat-card class="example-card">
+	<mat-card-header>
+    	<div mat-card-avatar class="example-header-image"></div>
+    	<mat-card-title>Kirill Afan</mat-card-title>
+    	<mat-card-subtitle>Short description about me goes here</mat-card-subtitle>
+  	</mat-card-header>
+  	<mat-card-content>
+		<mat-grid-list cols="3" rowHeight="200px">
+			<mat-grid-tile colspan="2" > 
+				<mat-card class="example-card">
+				  <mat-card-content>
+				    <p>
+				      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+				      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+				      bred for hunting.
+				    </p>
+				  </mat-card-content>
+				</mat-card>
+			</mat-grid-tile>
+			<mat-grid-tile rowspan="2">
+				<mat-card class="stats-card">
+			  		<mat-card-header>
+			  			<mat-card-title>
+			  				Stats
+			  			</mat-card-title>
+			  		</mat-card-header>
+			  		<mat-card-content>
+			  			<ul>
+			  				<li>+1-613-402-5584</li>
+			  				<li>648 Walkley rd</li>
+			  				<li>kirka121@gmail.com</li>
+			  				<li>facebook</li>
+			  				<li>instagram</li>
+			  				<li>twitter</li>
+			  				<li>linkedin</li>
+			  			</ul>
+			  		</mat-card-content>
+			  	</mat-card>
+			</mat-grid-tile>
+			<mat-grid-tile>
+			    <mat-card class="example-card">
+			  		<mat-card-header>
+			  			<mat-card-title>
+			  				Organizations
+			  			</mat-card-title>
+			  		</mat-card-header>
+			  		<mat-card-content>
+			  			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			  			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			  			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			  			consequat.
+			  		</mat-card-content>
+			  	</mat-card>
+		  	</mat-grid-tile>
+	  		<mat-grid-tile>
+			  	<mat-card class="example-card">
+			  		<mat-card-header>
+			  			<mat-card-title>
+			  				Recent Activity
+			  			</mat-card-title>
+			  		</mat-card-header>
+			  		<mat-card-content>
+			  			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			  			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			  			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			  			consequat.
+			  		</mat-card-content>
+			  	</mat-card>
+			 </mat-grid-tile>
+		</mat-grid-list>
+	</mat-card-content>
+</mat-card>
