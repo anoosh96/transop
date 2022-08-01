@@ -22,6 +22,7 @@ import { MyCommunitiesComponent } from './admin/my-communities/my-communities.co
 import { MaterialModule } from './material/material.module';
 import { CreateCommunityComponent } from './admin/my-communities/create-community/create-community.component';
 import { LineItemComponent } from './admin/my-communities/line-item/line-item.component';
+import { ProfileComponent } from './users/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LineItemComponent } from './admin/my-communities/line-item/line-item.co
     HeaderComponent,
     MyCommunitiesComponent,
     CreateCommunityComponent,
-    LineItemComponent
+    LineItemComponent,
+    ProfileComponent
   ],
   imports: [
     AppRoutingModule,
