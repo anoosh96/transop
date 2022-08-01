@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../../services/types';
+import { User, Community } from '../../services/types';
 import { CommunityService } from '../../services/community.service';
 
 @Component({
@@ -10,11 +10,16 @@ import { CommunityService } from '../../services/community.service';
 
 export class MyCommunityComponent implements OnInit {
   @Input() user: User;
+  community: Community;
 
   constructor(private commService: CommunityService) { }
 
   ngOnInit(): void {
-    this.commService.getMyCommunity(this.user.id);
+    this.commService.initGetMyCommunity(this.user.id);
+
+    this.commService.myCommunity.subscribe(myCommunity => {
+      this.community = myCommunity
+    });
   }
 
 }

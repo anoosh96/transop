@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from './types';
 import { Apollo } from 'apollo-angular';
@@ -75,7 +74,6 @@ export class AuthService {
   }
 
   register(name: string, email: string, password: string) {
-
     this.apollo.mutate({
       mutation: REGISTER_USER_QUERY,
       variables: {

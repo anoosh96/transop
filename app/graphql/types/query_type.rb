@@ -30,6 +30,8 @@ module Types
         user = User.find_by_id(local_id)
       end
 
+      return nil unless user
+
       return { 
         id: user.id,
         email: user.email,
@@ -39,10 +41,14 @@ module Types
     end
 
     def my_community(user_id: nil)
+      #TODO find_by user_id after belongs_to is done
+      community = Community.find_by_id(user_id)
+
+      return nil unless community
       return {
-        id: 1,
-        name: 'katata',
-        description: 'base community'
+        id: community.id,
+        name: community.name,
+        description: community.description
       }
     end
   end
