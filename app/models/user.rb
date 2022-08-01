@@ -1,14 +1,13 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, 
-         :registerable,
-         :jwt_authenticatable,
-         jwt_revocation_strategy: JwtDenylist
-
+  devise :database_authenticatable, :registerable, :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
 	validates :name, presence: true
   validates :email, presence: true, uniqueness: true
 
+  # TODO:
+  #   => has_one community
+  #   => is_admin?
+
+  
   def jwt_payload
     { 'expiry_date' => 'todo' }
   end
