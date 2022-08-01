@@ -16,7 +16,6 @@ import { UsersNewComponent } from './users/new/new.component';
 import { CommunitiesIndexComponent } from './communities/index/index.component';
 import { AdminComponent } from './admin/admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './shared/header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MyCommunitiesComponent } from './admin/my-communities/my-communities.component';
 import { MaterialModule } from './material/material.module';
@@ -34,7 +33,6 @@ import { ProfileComponent } from './users/profile/profile.component';
     UsersNewComponent,
     CommunitiesIndexComponent,
     AdminComponent,
-    HeaderComponent,
     MyCommunitiesComponent,
     CreateCommunityComponent,
     LineItemComponent,

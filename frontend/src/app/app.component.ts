@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { GC_TOGGLE_SIDEBAR } from './constants';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 })
 
 export class AppComponent {
+  drawerOpened: boolean = localStorage.getItem(GC_TOGGLE_SIDEBAR) == "true";
   logged: boolean = false;
   subscription: Subscription;
 
@@ -26,8 +28,9 @@ export class AppComponent {
     this.authService.logout();
   }
 
-  navigateToProfile() {
-    this.router.navigate(['/users/profile']);
+  toggleDrawer() {
+    this.drawerOpened = !this.drawerOpened;
+    localStorage.setItem(GC_TOGGLE_SIDEBAR, String(this.drawerOpened));
   }
 
   ngOnDestroy() {
