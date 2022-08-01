@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './shared/header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MyCommunityComponent } from './admin/my-community/my-community.component';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { MyCommunityComponent } from './admin/my-community/my-community.componen
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
