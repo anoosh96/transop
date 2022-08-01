@@ -21,6 +21,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MyCommunitiesComponent } from './admin/my-communities/my-communities.component';
 import { MaterialModule } from './material/material.module';
 import { CreateCommunityComponent } from './admin/my-communities/create-community/create-community.component';
+import { LineItemComponent } from './admin/my-communities/line-item/line-item.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CreateCommunityComponent } from './admin/my-communities/create-communit
     AdminComponent,
     HeaderComponent,
     MyCommunitiesComponent,
-    CreateCommunityComponent
+    CreateCommunityComponent,
+    LineItemComponent
   ],
   imports: [
     AppRoutingModule,

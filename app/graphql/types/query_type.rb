@@ -43,7 +43,7 @@ module Types
     def my_communities(user_id: nil)
       user = context[:current_user]
       return nil unless user
-      return nil unless user.id == user_id
+      return nil unless user.id == user_id.to_i
       return nil unless user.communities.any?
 
       user.communities

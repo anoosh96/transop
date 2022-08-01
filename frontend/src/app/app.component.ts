@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +10,22 @@ import { AuthService } from './services/auth.service';
 
 export class AppComponent {
   logged: boolean = false;
+  subscription: Subscription;
 
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
     this.authService.autoLogin();
-    this.authService.isAuthenticated.subscribe(isAuthenticated => {
+    this.subscription = this.authService.isAuthenticated.subscribe(isAuthenticated => {
       this.logged = isAuthenticated
     });
   }
 
   logout() {
     this.authService.logout();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

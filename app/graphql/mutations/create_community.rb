@@ -9,10 +9,9 @@ module Mutations
       user = context[:current_user]
       return nil unless user
       
-      community = Community.create!(
-        name: name,
-        description: description
-      )
+      # todo manage validation errors
+      community = Community.create!(name: name, description: description)
+      Member.create!(user_id: user.id, community_id: community.id, role: 'admin')
 
       { id: community.id, name: community.name, description: community.description }
     end

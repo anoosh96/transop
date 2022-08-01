@@ -12,11 +12,10 @@ export class ContactComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   submit(): void {
-    console.log("Contact us submitted:")
+    console.log(`Contact us submitted. email: ${this.email}, subject: ${this.subject}, description: ${this.description}`);
   }
 
 }

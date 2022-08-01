@@ -14,5 +14,7 @@ export class CreateCommunityComponent implements OnInit {
 
   ngOnInit() {}
 
-  submit() {}
+  submit() {
+    this.commService.createCommunity(this.name, this.description);
+  }
 }
