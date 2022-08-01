@@ -1,13 +1,13 @@
 <header>
   <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon (click)="toggleDrawer()">menu</mat-icon>
+    <button mat-icon-button class="example-icon" (click)="toggleDrawer()">
+      <mat-icon>menu</mat-icon>
     </button>
-    <span>Transparent Politics</span>
+    <span class="main-header">Transparent Politics</span>
       <span class="toolbar-spacer"></span>
 
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon [matMenuTriggerFor]="profileMenu">perm_identity</mat-icon>
+    <button mat-icon-button class="example-icon favorite-icon" [matMenuTriggerFor]="profileMenu">
+      <mat-icon>perm_identity</mat-icon>
     </button>
   </mat-toolbar>
 
@@ -21,13 +21,15 @@
 
 <mat-drawer-container class="drawer-container" autosize>
   <mat-drawer #drawer class="drawer-sidenav" mode="side" [opened]="drawerOpened">
-    <ul>  
-      <li class="navbar-link" *ngIf="logged"><a routerLink="/admin" >Admin</a></li>
-      <li class="navbar-link"><a routerLink="/" routerLinkActive="active">Home</a></li>
-      <li class="navbar-link"><a routerLink="/about" routerLinkActive="active">About</a></li>
-      <li class="navbar-link"><a routerLink="/communities" routerLinkActive="active">Communities</a></li>
-      <li class="navbar-link"><a routerLink="/contact_us" routerLinkActive="active">Contact Us</a></li>
-    </ul>
+    <mat-nav-list> 
+      <div *ngIf="logged">
+        <a mat-list-item routerLink="/admin" >Admin</a>
+      </div>
+      <a mat-list-item routerLink="/" routerLinkActive="active">Home</a>
+      <a mat-list-item routerLink="/about" routerLinkActive="active">About</a>
+      <a mat-list-item routerLink="/communities" routerLinkActive="active">Communities</a>
+      <a mat-list-item routerLink="/contact_us" routerLinkActive="active">Contact Us</a>
+    </mat-nav-list>
   </mat-drawer>
 
   <div class="container">

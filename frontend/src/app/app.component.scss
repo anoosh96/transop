@@ -1,7 +1,4 @@
 header {
-	.navbar-link {
-		margin: 0 10px 0 10px;
-	}
 	.toolbar-spacer {
   		flex: 1 1 auto;
 	}
@@ -20,14 +17,12 @@ header {
 }
 
 .drawer-sidenav {
-  padding: 10px;
   max-width: 200px;
-  ul{
-  	margin: 0;
-  	padding: 0;
-  }
 }
 
 .container{
 	padding: 10px;
+}
+.main-header{
+	margin-left: 15px;
 }
