@@ -45,6 +45,7 @@ export class AuthService {
     localStorage.removeItem(GC_USER_ID);
     localStorage.removeItem(GC_AUTH_TOKEN);
     this._isAuthenticated.next(false);
+    this.router.navigate(['/']);
   }
 
   autoLogin() {
@@ -94,11 +95,17 @@ export class AuthService {
     });
   }
 
+  enforceLoggedIn() {
+    if (!this.isAuthenticated){
+      this.router.navigate(['/']);
+    }
+  }
+
   private login(data: any) {
     localStorage.setItem(GC_USER_ID, data.user.id);
     localStorage.setItem(GC_AUTH_TOKEN, data.token);
     this.setUser(data.user.id, data.user.name, data.user.email, data.token);
-    this.router.navigate(['/']);
+    this.router.navigate(['/users/profile']);
   }
 
   private setUser(id: string, name: string, email: string, token: string) {

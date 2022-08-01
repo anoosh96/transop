@@ -7,9 +7,16 @@
       <span class="toolbar-spacer"></span>
 
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon (click)="navigateToProfile()">perm_identity</mat-icon>
+      <mat-icon [matMenuTriggerFor]="profileMenu">perm_identity</mat-icon>
     </button>
   </mat-toolbar>
+
+  <mat-menu #profileMenu="matMenu">
+    <button mat-menu-item *ngIf="!logged" routerLink="/users/new">Register</button>
+    <button mat-menu-item *ngIf="!logged" routerLink="/users/login">Login</button>
+    <button mat-menu-item *ngIf="logged" routerLink="/users/profile">Profile</button>
+    <button mat-menu-item *ngIf="logged" (click)="logout()">Logout</button>
+  </mat-menu>
 </header>
 
 <mat-drawer-container class="drawer-container" autosize>
@@ -20,8 +27,6 @@
       <li class="navbar-link"><a routerLink="/about" routerLinkActive="active">About</a></li>
       <li class="navbar-link"><a routerLink="/communities" routerLinkActive="active">Communities</a></li>
       <li class="navbar-link"><a routerLink="/contact_us" routerLinkActive="active">Contact Us</a></li>
-      <li class="navbar-link" *ngIf="!logged"><a routerLink="/users/login" routerLinkActive="active">Login</a></li>
-      <li class="navbar-link" *ngIf="logged"><a routerLink="" (click)="logout()">Logout</a></li>
     </ul>
   </mat-drawer>
 

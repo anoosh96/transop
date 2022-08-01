@@ -19,9 +19,10 @@ export class AdminComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.subscription = this.authService.currentUser.subscribe(currentUser => {
       this.user = currentUser;
+      this.authService.enforceLoggedIn();
     });
   }
 
