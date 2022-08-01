@@ -1,5 +1,6 @@
 class Community < ApplicationRecord
 	# TODO:
-	# =>  has many users through table
-	# =>  has one admin
+	# =>  has one admin, enforced
+	has_many :members
+	has_many :users, through: :members
 end

@@ -9,7 +9,7 @@ module Types
       argument :local_id, String, required: true
       argument :local_token, String, required: true
     end
-    field :my_community, CommunityType, null: true, description: "Get current user's community" do
+    field :my_communities, [CommunityType], null: true, description: "Get current user's community" do
       argument :user_id, String, required: true
     end
 
@@ -40,16 +40,13 @@ module Types
       }
     end
 
-    def my_community(user_id: nil)
-      #TODO find_by user_id after belongs_to is done
-      community = Community.find_by_id(user_id)
+    def my_communities(user_id: nil)
+      user = context[:current_user]
+      return nil unless user
+      return nil unless user.id == user_id
+      return nil unless user.communities.any?
 
-      return nil unless community
-      return {
-        id: community.id,
-        name: community.name,
-        description: community.description
-      }
+      user.communities
     end
   end
 end

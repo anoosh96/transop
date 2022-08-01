@@ -18,8 +18,9 @@ import { AdminComponent } from './admin/admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './shared/header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MyCommunityComponent } from './admin/my-community/my-community.component';
+import { MyCommunitiesComponent } from './admin/my-communities/my-communities.component';
 import { MaterialModule } from './material/material.module';
+import { CreateCommunityComponent } from './admin/my-communities/create-community/create-community.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MaterialModule } from './material/material.module';
     CommunitiesIndexComponent,
     AdminComponent,
     HeaderComponent,
-    MyCommunityComponent
+    MyCommunitiesComponent,
+    CreateCommunityComponent
   ],
   imports: [
     AppRoutingModule,

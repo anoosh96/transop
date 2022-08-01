@@ -3,12 +3,10 @@ class User < ApplicationRecord
 	validates :name, presence: true
   validates :email, presence: true, uniqueness: true
 
-  # TODO:
-  #   => has_one community
-  #   => is_admin?
+  has_many :members
+  has_many :communities, through: :members
 
-  
   def jwt_payload
-    { 'expiry_date' => 'todo' }
+    { 'custom_token_data' => 'todo' }
   end
 end

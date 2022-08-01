@@ -1,0 +1,17 @@
+<div class="admin-communities-container">
+	<div *ngIf="communities.length === 0">
+		<h4>You do not have any communities.</h4>
+		Please create one or ask an admin of another community to invite you.
+		<br/>
+		<button
+		    mat-raised-button
+		    color="{{!toggleCreateCommunity ? 'primary' : 'warn'}}"
+		    (click)="toggleCreateCommunityForm()">
+		    {{!toggleCreateCommunity ? "Create Community" : "Cancel"}}
+		  </button>
+		<app-create-community *ngIf="toggleCreateCommunity"></app-create-community>
+	</div>
+	<div *ngIf="communities.length > 0">
+		you have communities
+	</div>
+</div>

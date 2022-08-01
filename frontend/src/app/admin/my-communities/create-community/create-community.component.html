@@ -1,0 +1,29 @@
+<h4>Create new Community</h4>
+<form>
+	<div class='flex flex-column'>
+	  <mat-form-field class="example-form-field" appearance="fill">
+	    <mat-label>Name</mat-label>
+	    <input matInput type="text" name="name" [(ngModel)]="name">
+	    <button *ngIf="name" matSuffix mat-icon-button aria-label="Clear" (click)="name=''">
+	      <mat-icon>close</mat-icon>
+	    </button>
+	  </mat-form-field>
+	  <br/>
+	  <mat-form-field class="example-form-field" appearance="fill">
+	    <mat-label>Description</mat-label>
+	    <textarea matInput type="description" name="description" [(ngModel)]="description"></textarea>
+	    <button *ngIf="description" matSuffix mat-icon-button aria-label="Clear" (click)="description=''">
+	      <mat-icon>close</mat-icon>
+	    </button>
+	  </mat-form-field>
+	</div>
+
+	<div class='flex mt3'>
+	  <button
+	    mat-raised-button
+	    color="primary"
+	    (click)="submit()">
+	    Submit
+	  </button>
+	</div>
+</form>
