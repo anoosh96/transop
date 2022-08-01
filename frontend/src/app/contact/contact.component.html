@@ -1,7 +1,34 @@
-<form>
-	subject: <input type="subject" name="contact_subject"/>
-	<br/>
-	descrition: <textarea name="contact_description"></textarea>
-	<br/>
-	<button type="submit">Send</button>
-</form> 
+<h4>Contact Us</h4>
+<div class='flex flex-column'>
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Your Email</mat-label>
+    <input matInput type="text" name="email" [(ngModel)]="email">
+    <button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <br/>
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Subject</mat-label>
+    <input matInput type="text" name="subject" [(ngModel)]="subject">
+    <button *ngIf="subject" matSuffix mat-icon-button aria-label="Clear" (click)="subject=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <br/>
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput type="description" name="description" [(ngModel)]="description"></textarea>
+    <button *ngIf="description" matSuffix mat-icon-button aria-label="Clear" (click)="description=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<div class='flex mt3'>
+  <button
+    mat-raised-button
+    (click)="submit()">
+    Submit
+  </button>
+</div>

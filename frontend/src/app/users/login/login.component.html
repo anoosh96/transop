@@ -1,20 +1,27 @@
-<h4 class='mv3'>Login</h4>
+<h4>Login</h4>
 <div class='flex flex-column'>
-  <input
-    [(ngModel)]="email"
-    type="text"
-    placeholder="Your email address">
-  <input
-    [(ngModel)]="password"
-    type="password"
-    placeholder="Password">
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput type="text" name="email" [(ngModel)]="email">
+    <button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <br/>
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" name="password" [(ngModel)]="password">
+    <button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
 </div>
 <div class='flex mt3'>
   <button
-    class='pointer mr2 button'
+    mat-raised-button
     (click)="confirm()">
     Login
   </button>
   or 
-  <a href="/users/new">Register</a>
+  <a mat-raised-button class="register-button" routerLink="/users/new">Register</a>
 </div>
