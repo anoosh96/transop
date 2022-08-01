@@ -1,4 +1,33 @@
-.container {
-	padding-left: 10px;
-	padding-right: 10px;
+header {
+	.navbar-link {
+		margin: 0 10px 0 10px;
+	}
+	.toolbar-spacer {
+  		flex: 1 1 auto;
+	}
+}
+
+.drawer-container {
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.drawer-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.drawer-sidenav {
+  padding: 10px;
+  max-width: 200px;
+  ul{
+  	margin: 0;
+  	padding: 0;
+  }
+}
+
+.container{
+	padding: 10px;
 }

@@ -1,13 +1,1 @@
-<header>
-	<nav>
-		<ul>
-			<li><a routerLink="/" routerLinkActive="active">Home</a></li>
-			<li><a routerLink="/about" routerLinkActive="active">About</a></li>
-			<li><a routerLink="/communities" routerLinkActive="active">Communities</a></li>
-			<li><a routerLink="/contact_us" routerLinkActive="active">Contact Us</a></li>
-			<li *ngIf="!logged"><a routerLink="/users/login" routerLinkActive="active">Login</a></li>
-			<li *ngIf="logged"><fa-icon [icon]="faAngry"></fa-icon><a routerLink="/admin" >Admin</a></li>
-			<li *ngIf="logged"><a href="/" (click)="logout()">Logout</a></li>
-		</ul>
-	</nav>
-</header>
+TODO restore header

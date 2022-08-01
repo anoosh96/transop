@@ -18,4 +18,8 @@ export class AppComponent {
       this.logged = isAuthenticated
     });
   }
+
+  logout() {
+    this.authService.logout();
+  }
 }

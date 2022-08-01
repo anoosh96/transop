@@ -1,10 +1,8 @@
 header {
-	ul li{
-		display:  inline;
-		margin:  0px 10px 0px 10px;
+	.navbar-link {
+		margin: 0 10px 0 10px;
 	}
-	nav {
-		width:  500px;
-		margin:  0 auto;
+	.toolbar-spacer {
+  		flex: 1 1 auto;
 	}
 }
