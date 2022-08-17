@@ -1,5 +1,5 @@
-# README
-Transparent Politics (maybe Katata, maybe something else entirely)
+## Transparent Politics (maybe Katata, maybe something else entirely)
+
 
 A platform for online community presence. A website designed to simplify the aspects of coordinating shared activities and achieve common goals.
 When a group of people gathers to achieve a common goal, natural needs occur - such as definition of roles, responsibilities, initiatives, election of leaders, gathering and expression of opinion, decision making, information sharing, internal communications, analytics gathering and tracking. These processees are (if done at all) usually done ad-hoc, on a one off basis, word of mouth, or based on trust. 
@@ -7,12 +7,13 @@ We believe that in order to achieve long term communal success, these processees
 On the transparent politics website, a user can register an account, and then create or join a existing community. They can view the public pages of other public communities as well. Once a community is created, it gets its own public page, similar to how Shopify creates a store. Members of the community can interact with their public page in various ways, based on the roles that they have within the community. Admin of the community can define what features the community has by enabling modules. Some base modules are provided by us. Future modules can be custom coded, or can be selected from a previously custom coded and submitted selection in an "app-store" fashion. Some examples of modules are: News, Events, Blog, Polls, etc.
 
 
-MVP Feature set
+### MVP Feature set
 
 - Base Tranpasrent Polics
 	- Landing page - about us, examples of successful communtities, user registration, contact
 	- Communitites index page with search sort filter (on public communities only)
 	- Registered User can create / request to join a public community
+	- Supports multiple languages through out the entire website (En / Ukr / Ru to start)
 
 - Within a community
 	- A community can be private or public
@@ -64,15 +65,15 @@ MVP Feature set
 		- New modules can be written and added by third party developers through "app store"-like functionality
 	- Members of the community can interact with modules. 
 		- Create an initiative (We want to build a road)
-		- Create a poll for the initiatice (Does everyone else want to build the road?)
-		- Fund the initiative (We need $5000 to build the road, please donate)
-		- Report progress, goals checkes, milestones achieves, expensess incurred
-			- receipts, blockers encountered
+		- Create a poll for the initiative (Does everyone else want to build the road too?)
+		- Fund the initiative (Given most people wanted to build a roach, we need $5000, please donate)
+		- Report progress, goal checks, milestones achieved, expensess incurred
+			- receipts of expenses, blockers encountered.
 		- Create events (We want to have a community BBQ)
 		- Subscribe to event notifications (Reminders for events, Notifications of checkpoints met in initiatives)
-		- Comment and vote and comment on things (comments, pictures, videos, other members).
+		- Comment and vote on things (posts, news, annoucenemnts, other comments, pictures, videos, member's activities).
 	- Members of community can interact with each other
-		- View individual member / role responsibilities and their accomplishment logs (Electric pole inspections every month)
+		- View individual member / role responsibilities and their accomplishment logs (Member N is resonsible for Electric pole inspections every month, here are their inspection results)
 		- Message members, collaborate, ask for information (Why is the cieling leaking? Can I buy your land?)
 		- Create group chats and mini forums / threads
 
@@ -90,4 +91,7 @@ Use cases
 	- someone writes a module for World of Warcraft API integration, so a guild can have a frontpage for their members. 
 	- someone writes a Shopify module to add an online store intergarition to the community - so our members can integrate their Shopify stores, maybe creating one large store for the entire community (one produces hand knit socks, another produces straw hats, another produces birch tree syrop, they all have their individual stores, but also contribute to one shares store in the community) 
 	- someone writes a module for Dungeons and Dragons rulesets
+
+
+
 
