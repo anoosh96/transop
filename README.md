@@ -3,11 +3,15 @@
 
 A platform for online community presence. A website designed to simplify the aspects of coordinating shared activities and achieve common goals.
 When a group of people gathers around a common long term goal, natural needs occur - such as definition of roles, responsibilities, initiatives, election of leaders, gathering and expression of opinion, decision making, information sharing, internal communications, analytics gathering and tracking. These processees are (if done at all) usually done ad-hoc, on a one off basis, word of mouth, and/or through extensive paperwork, recurring meetings, multiple sources of truth. We believe that in order to achieve long term communal success, these processees must be standardized, centralized, automated where possible, as well as made transparent for everyone involved - hence the name. 
+
 On the transparent politics website, a user can register an account, and then create or join a existing community. They can view the public pages of other public communities as well. Once a community is created, it gets its own public page, similar to how Shopify creates a store. Members of the community can interact with their public page in various ways, based on the roles that they have within the community. 
 Admins of the community can define what features the community has by enabling modules. Some base modules are provided by us. Additional modules can be custom coded, or selected from a previously submitted and approved set, in an "app-store"-like fashion. Some examples of modules are: News, Events, Blog, Initiatives, Funding etc. 
+
 Admins can create and define roles for their community members. Roles define interactions provided to members by specific modules, as well as the overall community page. E.g. some roles allow creation of blog posts and deletion of comments, while other roles only allow read-only access to content.
 We believe that our solution will promote collaboration, spark community initiatives, help old initiatives run more efficiently and transparently. We also believe that our solution may help certain communities attract external investment and build higher trust.
+
 Through the use of the transparent politics process, a community can take advantage of automatic record keeping, async decision making, easy communication, analytics. Any member can easily find relevant news and announcements, subscribe to wanted notifications and updates. They can easily propose, gather opinion on, fund, and execute intiaitves. If members chose to do so, they can leverage social media integrations in order to gather a larger audience for their intiaitves. Automated goal setting and reporting into intiaitve execution allows members to provide visibility for their audiences, keeping themselves accountable while increasing support, as well as trust. 
+
 Lastly, public communities can take advantage of member recruitment, while regular users may leverage the public community index page to find communities of interest, browse their historic data, subscribe to them, or request to join them, if they want to.
 
 
@@ -51,18 +55,22 @@ Lastly, public communities can take advantage of member recruitment, while regul
 				- Pictures / Videos
 			- Blog
 			- Property Ownership / Use (land, house, appartment, room)
-			- Equipment sharing / lending / rental
+				- if member propery ownership is involved, allows for different functionality and data gathering on it
+			- Resource give away / sharing / lending / rental  
+				- sharing tools - one member has a saw, another a hammer. one has a truck, another a boat.
+				- giving away goods - i grew too many apples, here take some whoever wants any 
+				- here rent my cottage for a few months since i am on vacation, the pool is epic
 			- Initiatives
 				- can be connected to polls
 				- description
 				- requirements
-				- Define goals, milestones, deadlines
+				- goals, milestones, deadlines
 				- reporting
 			- Fund gathering
 				- can be connected to initiatives
 				- Expense monitoring and stats
 			- Reccurring expenses
-				- bills, membership dues etc
+				- bills, membership dues, fees, etc
 			- Social media integrations
 				- Sync updates
 				- SSO for members
@@ -83,7 +91,8 @@ Lastly, public communities can take advantage of member recruitment, while regul
 		- Create group chats and mini forums / threads
 
 
-Use cases
+### Potential Use cases
+
 - A group of individuals running an eco farm want to keep track of their work and streamline the daily process. (Sub plot ownership definition, membership responsibilities, agreements, expense tracking)
 - Members of a high rise building want to create a coop to facilitate some activities in their building (child daycare, paint the lobby, plant some flowers, BBQ, swimming pool sundays)
 - Large family or a group of friends are organizing a large event (or ritual) (holiday, a monthly meeting at the sauna, camping)
