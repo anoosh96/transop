@@ -2,36 +2,42 @@
 
 
 A platform for online community presence. A website designed to simplify the aspects of coordinating shared activities and achieve common goals.
-When a group of people gathers to achieve a common goal, natural needs occur - such as definition of roles, responsibilities, initiatives, election of leaders, gathering and expression of opinion, decision making, information sharing, internal communications, analytics gathering and tracking. These processees are (if done at all) usually done ad-hoc, on a one off basis, word of mouth, or based on trust. 
-We believe that in order to achieve long term communal success, these processees must be automated as much as possible, as well as made transparent for everyone involved - hence the name. We think this will promote collaboration, spark community initiatives, help old initiatives run more efficiently and transparently. We also believe that this may help certain communities attract external investment, increase their efficiency, build trust through process and transparency and outreach.
-On the transparent politics website, a user can register an account, and then create or join a existing community. They can view the public pages of other public communities as well. Once a community is created, it gets its own public page, similar to how Shopify creates a store. Members of the community can interact with their public page in various ways, based on the roles that they have within the community. Admin of the community can define what features the community has by enabling modules. Some base modules are provided by us. Future modules can be custom coded, or can be selected from a previously custom coded and submitted selection in an "app-store" fashion. Some examples of modules are: News, Events, Blog, Polls, etc.
+When a group of people gathers around a common long term goal, natural needs occur - such as definition of roles, responsibilities, initiatives, election of leaders, gathering and expression of opinion, decision making, information sharing, internal communications, analytics gathering and tracking. These processees are (if done at all) usually done ad-hoc, on a one off basis, word of mouth, and/or through extensive paperwork, recurring meetings, multiple sources of truth. We believe that in order to achieve long term communal success, these processees must be standardized, centralized, automated where possible, as well as made transparent for everyone involved - hence the name. 
+On the transparent politics website, a user can register an account, and then create or join a existing community. They can view the public pages of other public communities as well. Once a community is created, it gets its own public page, similar to how Shopify creates a store. Members of the community can interact with their public page in various ways, based on the roles that they have within the community. 
+Admins of the community can define what features the community has by enabling modules. Some base modules are provided by us. Additional modules can be custom coded, or selected from a previously submitted and approved set, in an "app-store"-like fashion. Some examples of modules are: News, Events, Blog, Initiatives, Funding etc. 
+Admins can create and define roles for their community members. Roles define interactions provided to members by specific modules, as well as the overall community page. E.g. some roles allow creation of blog posts and deletion of comments, while other roles only allow read-only access to content.
+We believe that our solution will promote collaboration, spark community initiatives, help old initiatives run more efficiently and transparently. We also believe that our solution may help certain communities attract external investment and build higher trust.
+Through the use of the transparent politics process, a community can take advantage of automatic record keeping, async decision making, easy communication, analytics. Any member can easily find relevant news and announcements, subscribe to wanted notifications and updates. They can easily propose, gather opinion on, fund, and execute intiaitves. If members chose to do so, they can leverage social media integrations in order to gather a larger audience for their intiaitves. Automated goal setting and reporting into intiaitve execution allows members to provide visibility for their audiences, keeping themselves accountable while increasing support, as well as trust. 
+Lastly, public communities can take advantage of member recruitment, while regular users may leverage the public community index page to find communities of interest, browse their historic data, subscribe to them, or request to join them, if they want to.
 
 
 ### MVP Feature set
 
 - Base Tranpasrent Polics
+	- Supports multiple languages through out the entire website (En / Ukr / Ru to start)
 	- Landing page - about us, examples of successful communtities, user registration, contact
 	- Communitites index page with search sort filter (on public communities only)
-	- Registered User can create / request to join a public community
-	- Supports multiple languages through out the entire website (En / Ukr / Ru to start)
-
+	- User can create / request to join a public community
+	- User may subscribe to public community notifications, without being a member of it
+	- Each community is an independent page, with its own domain
+	
 - Within a community
 	- A community can be private or public
 	- A community has a landing page 
 		- few basic themes
-		- manipulation of content location, presense, wysiwyg.
-		- each adctivated module surfaces links and components that can be leveraged
+		- manipulation of content location, presense, menus, wysiwyg.
+		- each activated module surfaces links and components that can be leveraged
 	- A community has members
 		- can be invited
-		- have basic contact info
-		- member can pick what info is private and what is public
+		- have basic contact info, can pick what info is private and what is public
+		- have subscriptions to different events, initiatives, etc
 	- A community has roles that can be imposed onto members
 		- Base roles: Admin, Member
 		- New roles can be defined. Each role has very granular access control over each module (view, create, update, delete, comment, etc etc)
 	- A community has modules that define use cases and features it needs
 		- Base modules:
 			- Members
-				- contact info, +1s, unicorns, status, role, activity
+				- contact info, +1s, comments, status, role, activity
 			- News / Announcements
 			- Calendar / Events
 			- Notifications / Subscriptions
@@ -60,7 +66,6 @@ On the transparent politics website, a user can register an account, and then cr
 			- Social media integrations
 				- Sync updates
 				- SSO for members
-				- 
 		- Admin can add  / remove modules to their community, as well as define specific access rights and responsibilities for each role
 		- New modules can be written and added by third party developers through "app store"-like functionality
 	- Members of the community can interact with modules. 
