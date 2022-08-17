@@ -12,7 +12,7 @@ We believe that our solution will promote collaboration, spark community initiat
 
 Through the use of the transparent politics process, a community can take advantage of automatic record keeping, async decision making, easy communication, analytics. Any member can easily find relevant news and announcements, subscribe to wanted notifications and updates. They can easily propose, gather opinion on, fund, and execute intiaitves. If members chose to do so, they can leverage social media integrations in order to gather a larger audience for their intiaitves. Automated goal setting and reporting into intiaitve execution allows members to provide visibility for their audiences, keeping themselves accountable while increasing support, as well as trust. 
 
-Lastly, public communities can take advantage of member recruitment, while regular users may leverage the public community index page to find communities of interest, browse their historic data, subscribe to them, or request to join them, if they want to.
+Lastly, public communities can take advantage of member recruitment (proximity, shared interests, ads), while regular users may leverage the public community index page to find communities of interest, browse their historic data, subscribe to them, and/or request to join them.
 
 
 ### MVP Feature set
