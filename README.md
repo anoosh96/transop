@@ -108,4 +108,41 @@ Lastly, public communities can take advantage of member recruitment (proximity, 
 
 
 
+### Project Setup
 
+- clone down this repo [git clone git@github.com:kirka121/transop.git]
+- install rvm [https://rvm.io/rvm/install]
+- install ruby 3.1.2 [rvm install 3.1.2]
+- check the default version ov ruby with [ruby -v], if is not 3.1.2, set default in rvm [rvm default 3.1.2]
+- run [bundle] in this repo, it will install rails and all the other dependencies
+- install pgadmin - UI interface for postgres. If you prefer CLI, you too pro and don't need this guide
+- change default postgres password:
+```
+	psql -U postgres
+	alter user postgres with password 'postgres';
+```
+- reload pg configuration 
+```
+	From the command line: pg_ctl reload
+	From within a db (as superuser): select pg_reload_conf();
+	From PGAdmin: right-click db name, select "Reload Configuration"
+```
+- set these ENV in your bashrc / zshrc:
+```
+	export TRANSPO_DB_USERNAME='postgres'
+	export TRANSPO_DB_PASSWORD='postgres'
+	export TRANSPO_DB_HOST='localhost'
+	export TRANSPO_DB_PORT='5432'
+```
+- reload zshrb /bashrc [source ~/.zshrc] || [source ~/.bashrc]
+- create and migrate the database: 
+```
+	rake db:create
+	rake db:migrate
+```
+- start the backend with [rails s]
+- switch to a new terminal window
+- install node && npm [sudo apt install nodejs npm]
+- install angular cli [sudo npm install -g @angular/cli]
+- install npm packages [npm install]
+- start frontend server [ng serve]
