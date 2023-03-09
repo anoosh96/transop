@@ -11,7 +11,7 @@ import { GC_TOGGLE_SIDEBAR } from './constants';
 })
 
 export class AppComponent {
-  drawerOpened: boolean = localStorage.getItem(GC_TOGGLE_SIDEBAR) == "true";
+  drawerOpened: boolean = this.getDrawerState()
   logged: boolean = false;
   subscription: Subscription;
 
@@ -35,5 +35,13 @@ export class AppComponent {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  private getDrawerState(): boolean {
+    let drawerOpened = localStorage.getItem(GC_TOGGLE_SIDEBAR)
+    if (drawerOpened === null){
+      return true
+    }
+    return drawerOpened == "true"
   }
 }
